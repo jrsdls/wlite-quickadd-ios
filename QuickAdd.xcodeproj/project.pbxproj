@@ -14,6 +14,7 @@
 		D91DDEA31B30A3620050A57C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D91DDEA21B30A3620050A57C /* Images.xcassets */; };
 		D91DDEA61B30A3620050A57C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91DDEA41B30A3620050A57C /* LaunchScreen.xib */; };
 		D91DDEB21B30A3620050A57C /* QuickAddTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDEB11B30A3620050A57C /* QuickAddTests.swift */; };
+		D91DDEBC1B30A3C60050A57C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDEBB1B30A3C60050A57C /* MainVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		D91DDEAB1B30A3620050A57C /* QuickAddTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickAddTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D91DDEB01B30A3620050A57C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D91DDEB11B30A3620050A57C /* QuickAddTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddTests.swift; sourceTree = "<group>"; };
+		D91DDEBB1B30A3C60050A57C /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				D91DDE981B30A3620050A57C /* AppDelegate.swift */,
+				D91DDEBB1B30A3C60050A57C /* MainVC.swift */,
 				D91DDE9D1B30A3620050A57C /* ViewController.swift */,
 				D91DDE9F1B30A3620050A57C /* Main.storyboard */,
 				D91DDEA21B30A3620050A57C /* Images.xcassets */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D91DDE9E1B30A3620050A57C /* ViewController.swift in Sources */,
+				D91DDEBC1B30A3C60050A57C /* MainVC.swift in Sources */,
 				D91DDE991B30A3620050A57C /* AppDelegate.swift in Sources */,
 				D91DDE9C1B30A3620050A57C /* QuickAdd.xcdatamodeld in Sources */,
 			);
