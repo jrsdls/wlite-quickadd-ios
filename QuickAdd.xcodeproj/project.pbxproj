@@ -15,6 +15,8 @@
 		D91DDEA61B30A3620050A57C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91DDEA41B30A3620050A57C /* LaunchScreen.xib */; };
 		D91DDEB21B30A3620050A57C /* QuickAddTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDEB11B30A3620050A57C /* QuickAddTests.swift */; };
 		D91DDEBC1B30A3C60050A57C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDEBB1B30A3C60050A57C /* MainVC.swift */; };
+		D91DDEBE1B30A5AB0050A57C /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */; };
+		D91DDEC01B3113A60050A57C /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91DDEBF1B3113A60050A57C /* Common.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		D91DDEB01B30A3620050A57C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D91DDEB11B30A3620050A57C /* QuickAddTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddTests.swift; sourceTree = "<group>"; };
 		D91DDEBB1B30A3C60050A57C /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		D91DDEBF1B3113A60050A57C /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = Carthage/Build/iOS/Common.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D91DDEC01B3113A60050A57C /* Common.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,7 @@
 				D91DDE951B30A3620050A57C /* QuickAdd */,
 				D91DDEAE1B30A3620050A57C /* QuickAddTests */,
 				D91DDE941B30A3620050A57C /* Products */,
+				D91DDEBF1B3113A60050A57C /* Common.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +89,7 @@
 			children = (
 				D91DDE981B30A3620050A57C /* AppDelegate.swift */,
 				D91DDEBB1B30A3C60050A57C /* MainVC.swift */,
+				D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */,
 				D91DDE9D1B30A3620050A57C /* ViewController.swift */,
 				D91DDE9F1B30A3620050A57C /* Main.storyboard */,
 				D91DDEA21B30A3620050A57C /* Images.xcassets */,
@@ -128,6 +135,7 @@
 				D91DDE8F1B30A3620050A57C /* Sources */,
 				D91DDE901B30A3620050A57C /* Frameworks */,
 				D91DDE911B30A3620050A57C /* Resources */,
+				D91DDEC11B31143D0050A57C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -213,11 +221,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D91DDEC11B31143D0050A57C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Common.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D91DDE8F1B30A3620050A57C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D91DDEBE1B30A5AB0050A57C /* AuthVC.swift in Sources */,
 				D91DDE9E1B30A3620050A57C /* ViewController.swift in Sources */,
 				D91DDEBC1B30A3C60050A57C /* MainVC.swift in Sources */,
 				D91DDE991B30A3620050A57C /* AppDelegate.swift in Sources */,
@@ -348,6 +375,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = QuickAdd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -358,6 +389,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = QuickAdd/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -417,6 +452,7 @@
 				D91DDEB71B30A3620050A57C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D91DDEB81B30A3620050A57C /* Build configuration list for PBXNativeTarget "QuickAddTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +461,7 @@
 				D91DDEBA1B30A3620050A57C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

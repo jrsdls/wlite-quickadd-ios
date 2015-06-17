@@ -17,9 +17,45 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="Ix2-xh-Kay" kind="presentation" identifier="showAuthVC" id="Dny-Nr-1q8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--AuthVC-->
+        <scene sceneID="hZW-JY-ds4">
+            <objects>
+                <viewController id="Ix2-xh-Kay" customClass="AuthVC" customModule="QuickAdd" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tOI-ZO-vPX"/>
+                        <viewControllerLayoutGuide type="bottom" id="BMf-VX-CdS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Ry-2R-jp7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQf-Kl-y2s">
+                                <rect key="frame" x="257" y="240" width="87" height="30"/>
+                                <state key="normal" title="Authenticate">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="authenticateButtonTapped:" destination="Ix2-xh-Kay" eventType="touchUpInside" id="Eo2-wt-NGX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XQf-Kl-y2s" firstAttribute="centerX" secondItem="4Ry-2R-jp7" secondAttribute="centerX" id="2J2-Gb-Cyu"/>
+                            <constraint firstItem="XQf-Kl-y2s" firstAttribute="top" secondItem="tOI-ZO-vPX" secondAttribute="bottom" constant="220" id="Jzz-si-AfF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="952-u7-sLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="307" y="1033"/>
         </scene>
     </scenes>
 </document>

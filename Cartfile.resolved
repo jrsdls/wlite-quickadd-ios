@@ -1,0 +1,3 @@
+github "Alamofire/Alamofire" "1.2.3"
+github "dongri/OAuthSwift" "v0.3.6"
+github "nstinks0186/wlite-common-ios" "v0.0.1"

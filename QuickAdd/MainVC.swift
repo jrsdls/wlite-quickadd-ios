@@ -12,8 +12,17 @@ class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        println("woohoo")
+        println("MainVC did load")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        println("MainVC.isAuthenticated " + (isAuthenticated() ? "yes" : "no"))
+        if (!isAuthenticated()) {
+            // TODO: show auth page
+            performSegueWithIdentifier("showAuthVC", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +40,12 @@ class MainVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - Convenience Methods
+    
+    private func isAuthenticated() -> Bool{
+        // TODO: this!
+        return false;
+    }
 
 }
