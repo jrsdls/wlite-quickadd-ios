@@ -23,6 +23,18 @@ class MainVC: UIViewController {
             // TODO: show auth page
             performSegueWithIdentifier("showAuthVC", sender: self)
         }
+        
+        // some tests
+//        self.readUser()
+//        self.readFolders()
+//        self.readFolderRevisions()
+//        self.readFolder("946735")
+//        self.readLists()
+//        self.createList("Bucket")
+//        self.readList("86173208")
+//        self.createTask("Test task, hola mundo!", forList: 164291775);
+//        self.readTasks("86173208")
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,8 +56,9 @@ class MainVC: UIViewController {
     // MARK: - Convenience Methods
     
     private func isAuthenticated() -> Bool{
-        // TODO: this!
-        return false;
+        // TODO: build new common framework release with latest code and use Wlite.isAuthenticated()
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        return userDefaults.stringForKey("com.wlite.oauth.accessToken") != nil
     }
 
 }
