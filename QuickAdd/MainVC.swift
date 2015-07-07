@@ -20,7 +20,6 @@ class MainVC: UIViewController {
         
         println("MainVC.isAuthenticated " + (isAuthenticated() ? "yes" : "no"))
         if (!isAuthenticated()) {
-            // TODO: show auth page
             performSegueWithIdentifier("showAuthVC", sender: self)
         }
         

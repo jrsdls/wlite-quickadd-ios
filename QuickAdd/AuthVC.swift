@@ -31,6 +31,11 @@ class AuthVC: UIViewController {
         Wlite.authorizeWithCallbackURL(callbackURL, successHandler: { (token) -> Void in
             println("authorization successful: \(token)")
             
+            // TODO: close auth page (this page)
+            self.presentingViewController?.dismissViewControllerAnimated(true, completion: { () -> Void in
+                println("AuthVC dismissed ...");
+            });
+            
 //            Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = [
 //                "X-Client-ID": self.clientID,
 //                "X-Access-Token":token
