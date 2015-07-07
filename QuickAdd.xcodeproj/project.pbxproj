@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7646B081B4C4A030083F97E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7646B061B4C4A030083F97E /* Alamofire.framework */; };
+		D7646B091B4C4A030083F97E /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7646B071B4C4A030083F97E /* OAuthSwift.framework */; };
 		D91DDE991B30A3620050A57C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDE981B30A3620050A57C /* AppDelegate.swift */; };
 		D91DDE9C1B30A3620050A57C /* QuickAdd.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D91DDE9A1B30A3620050A57C /* QuickAdd.xcdatamodeld */; };
 		D91DDE9E1B30A3620050A57C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDE9D1B30A3620050A57C /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D7646B061B4C4A030083F97E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		D7646B071B4C4A030083F97E /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = Carthage/Build/iOS/OAuthSwift.framework; sourceTree = "<group>"; };
 		D91DDE931B30A3620050A57C /* QuickAdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickAdd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D91DDE971B30A3620050A57C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D91DDE981B30A3620050A57C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7646B081B4C4A030083F97E /* Alamofire.framework in Frameworks */,
+				D7646B091B4C4A030083F97E /* OAuthSwift.framework in Frameworks */,
 				D91DDEC01B3113A60050A57C /* Common.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +78,8 @@
 				D91DDEAE1B30A3620050A57C /* QuickAddTests */,
 				D91DDE941B30A3620050A57C /* Products */,
 				D91DDEBF1B3113A60050A57C /* Common.framework */,
+				D7646B061B4C4A030083F97E /* Alamofire.framework */,
+				D7646B071B4C4A030083F97E /* OAuthSwift.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,6 +238,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Common.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			outputPaths = (
 			);
