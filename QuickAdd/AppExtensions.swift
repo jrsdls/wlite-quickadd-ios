@@ -21,8 +21,14 @@ extension UIColor {
         self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
     }
     
+    // http://www.google.com/design/spec/style/color.html#color-color-palette
+    
     class func appMainColor() -> UIColor {
-        return UIColor(hex: 0xF44336)
+        return UIColor(hex: 0xFF8A65)
+    }
+    
+    class func appDarkMainColor() -> UIColor {
+        return UIColor(hex: 0xBF360C)
     }
     
     class func appGreyColor() -> UIColor{

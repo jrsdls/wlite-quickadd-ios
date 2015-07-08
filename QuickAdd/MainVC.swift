@@ -17,8 +17,11 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        headerView.backgroundColor = UIColor.appMainColor()
-        self.navigationController!.navigationBar.barTintColor = UIColor.appGreyColor()
+        
+        self.headerView.backgroundColor = UIColor.appMainColor()
+//        self.navigationController!.navigationBar.barTintColor = UIColor.appMainColor()
+        self.view.tintColor = UIColor.appDarkMainColor()
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.appDarkMainColor()]
     }
     
     override func viewDidAppear(animated: Bool) {
