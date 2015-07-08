@@ -15,12 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let clientID = "f3ea79fd629ba3d2e252"
-    let clientSecret = "014a02f469a452a8ba3f2d8f0246499a0ac8babe1eb180abfb03516f6512"
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        Wlite.setupClientID(clientID, clientSecret: clientSecret)
+        Wlite.setupClientID(App.clientID, clientSecret: App.clientSecret)
         
         return true
     }

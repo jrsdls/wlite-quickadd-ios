@@ -27,6 +27,9 @@
                                                 <rect key="frame" x="8" y="15" width="537" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="2t2-Ch-qAI"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3o3-yB-yC5">
                                                 <rect key="frame" x="553" y="8" width="39" height="30"/>
@@ -125,23 +128,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFC-bp-wqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="415" y="-501"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="qiK-E2-HJy">
-            <objects>
-                <viewController id="oS1-vZ-mTl" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0lX-GA-l12"/>
-                        <viewControllerLayoutGuide type="bottom" id="5gA-If-YFO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2W8-5g-zh7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZd-Ik-N8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
 </document>

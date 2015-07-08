@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Alamofire
+import Common
 
-class MainVC: UIViewController {
+class MainVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var listButton: UIButton!
+    
+    var lists = [WList]()
+    var defaultList: WList!
     
     // TODO: load lists and show to picker when listButton is tapped
     
@@ -39,37 +44,26 @@ class MainVC: UIViewController {
             }
 //            listButton.setTitle("A very very very long list title", forState: .Normal)
             
+            Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = [
+                "X-Client-ID": App.clientID,
+                "X-Access-Token": App.accessToken!
+            ]
+            
             // TODO: load Lists if empty
+            self.readLists()
         }
-        
-        // some tests
-//        self.readUser()
-//        self.readFolders()
-//        self.readFolderRevisions()
-//        self.readFolder("946735")
-//        self.readLists()
-//        self.createList("Bucket")
-//        self.readList("86173208")
-//        self.createTask("Test task, hola mundo!", forList: 164291775);
-//        self.readTasks("86173208")
 
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - UITextFieldDelegate Methods
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if defaultList != nil {
+            self.createTask(textField.text, forList: defaultList.id)
+            textField.text = ""
+        }
+        return false
     }
-    */
     
     // MARK: - Convenience Methods
     
@@ -77,6 +71,56 @@ class MainVC: UIViewController {
         // TODO: build new common framework release with latest code and use Wlite.isAuthenticated()
         let userDefaults = NSUserDefaults.standardUserDefaults()
         return userDefaults.stringForKey("com.wlite.oauth.accessToken") != nil
+    }
+    
+    func readLists() {
+        Alamofire
+            .request(CListRouter.ReadLists())
+            .responseJSON(options: nil, completionHandler: {(request: NSURLRequest, response: NSHTTPURLResponse?, JSON: AnyObject?, error: NSError?) -> Void in
+                if (error != nil) {
+                    println("error: \(error)")
+                    println("response: \(response)")
+                }
+                if (JSON != nil) {
+                    println("result: \(JSON!)")
+                    self.lists = [WList]()
+                    if let rawLists  = JSON as? [[String:AnyObject]] {
+                        for rawList in rawLists {
+                            var list = WList(id: rawList["id"] as! Int, revision: rawList["revision"] as! Int, title: rawList["title"] as! String)
+                            self.lists.append(list)
+                            println(" * \(list.title) | \(list.id)")
+                            
+                            if list.title == "inbox" {
+                                self.defaultList = list
+                            }
+                        }
+                    }
+//                    println("result: \(self.lists)")
+                }
+            })
+    }
+    
+    func createTask(title: String, forList listid:Int){
+        let parameters : [ String : AnyObject] = [
+            "title": title,
+            "list_id": listid
+        ]
+        Alamofire
+            .request(CTaskRouter.CreateTask(parameters))
+            .responseJSON(options: nil, completionHandler: {(request: NSURLRequest, response: NSHTTPURLResponse?, JSON: AnyObject?, error: NSError?) -> Void in
+                
+                // TODO: show some ui indication of success or failure
+                
+                if (error != nil) {
+                    println("error: \(error)")
+                    println("response: \(response)")
+                }
+                if (JSON != nil) {
+                    println("result: \(JSON!)")
+                    
+                    // TODO: create WTask class
+                }
+            })
     }
 
 }

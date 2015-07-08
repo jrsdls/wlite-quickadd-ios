@@ -11,7 +11,6 @@
 		D7646B091B4C4A030083F97E /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7646B071B4C4A030083F97E /* OAuthSwift.framework */; };
 		D91DDE991B30A3620050A57C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDE981B30A3620050A57C /* AppDelegate.swift */; };
 		D91DDE9C1B30A3620050A57C /* QuickAdd.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D91DDE9A1B30A3620050A57C /* QuickAdd.xcdatamodeld */; };
-		D91DDE9E1B30A3620050A57C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDE9D1B30A3620050A57C /* ViewController.swift */; };
 		D91DDEA11B30A3620050A57C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D91DDE9F1B30A3620050A57C /* Main.storyboard */; };
 		D91DDEA31B30A3620050A57C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D91DDEA21B30A3620050A57C /* Images.xcassets */; };
 		D91DDEA61B30A3620050A57C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D91DDEA41B30A3620050A57C /* LaunchScreen.xib */; };
@@ -20,6 +19,8 @@
 		D91DDEBE1B30A5AB0050A57C /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */; };
 		D91DDEC01B3113A60050A57C /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91DDEBF1B3113A60050A57C /* Common.framework */; };
 		D979D74C1B4CB4C400C2F107 /* AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */; };
+		D979D74E1B4CCB7E00C2F107 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */; };
+		D979D7511B4CCF2C00C2F107 /* WList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D7501B4CCF2C00C2F107 /* WList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,6 @@
 		D91DDE971B30A3620050A57C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D91DDE981B30A3620050A57C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D91DDE9B1B30A3620050A57C /* QuickAdd.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuickAdd.xcdatamodel; sourceTree = "<group>"; };
-		D91DDE9D1B30A3620050A57C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D91DDEA01B30A3620050A57C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D91DDEA21B30A3620050A57C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D91DDEA51B30A3620050A57C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -50,6 +50,8 @@
 		D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		D91DDEBF1B3113A60050A57C /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = Carthage/Build/iOS/Common.framework; sourceTree = "<group>"; };
 		D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppExtensions.swift; sourceTree = "<group>"; };
+		D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		D979D7501B4CCF2C00C2F107 /* WList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +99,12 @@
 		D91DDE951B30A3620050A57C /* QuickAdd */ = {
 			isa = PBXGroup;
 			children = (
+				D979D74F1B4CCE9300C2F107 /* Wlite */,
+				D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */,
 				D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */,
 				D91DDE981B30A3620050A57C /* AppDelegate.swift */,
 				D91DDEBB1B30A3C60050A57C /* MainVC.swift */,
 				D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */,
-				D91DDE9D1B30A3620050A57C /* ViewController.swift */,
 				D91DDE9F1B30A3620050A57C /* Main.storyboard */,
 				D91DDEA21B30A3620050A57C /* Images.xcassets */,
 				D91DDEA41B30A3620050A57C /* LaunchScreen.xib */,
@@ -134,6 +137,14 @@
 				D91DDEB01B30A3620050A57C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D979D74F1B4CCE9300C2F107 /* Wlite */ = {
+			isa = PBXGroup;
+			children = (
+				D979D7501B4CCF2C00C2F107 /* WList.swift */,
+			);
+			name = Wlite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D91DDEBE1B30A5AB0050A57C /* AuthVC.swift in Sources */,
-				D91DDE9E1B30A3620050A57C /* ViewController.swift in Sources */,
+				D979D7511B4CCF2C00C2F107 /* WList.swift in Sources */,
 				D91DDEBC1B30A3C60050A57C /* MainVC.swift in Sources */,
+				D979D74E1B4CCB7E00C2F107 /* AppConfig.swift in Sources */,
 				D979D74C1B4CB4C400C2F107 /* AppExtensions.swift in Sources */,
 				D91DDE991B30A3620050A57C /* AppDelegate.swift in Sources */,
 				D91DDE9C1B30A3620050A57C /* QuickAdd.xcdatamodeld in Sources */,

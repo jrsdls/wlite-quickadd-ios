@@ -36,10 +36,6 @@ class AuthVC: UIViewController {
                 println("AuthVC dismissed ...");
             });
             
-//            Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = [
-//                "X-Client-ID": self.clientID,
-//                "X-Access-Token":token
-//            ]
             
             //            self.readUser()
             //            self.readFolders()
