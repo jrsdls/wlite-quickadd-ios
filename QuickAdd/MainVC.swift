@@ -10,9 +10,15 @@ import UIKit
 
 class MainVC: UIViewController {
 
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var listButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("MainVC did load")
+        
+        headerView.backgroundColor = UIColor.appMainColor()
+        self.navigationController!.navigationBar.barTintColor = UIColor.appGreyColor()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -21,6 +27,11 @@ class MainVC: UIViewController {
         println("MainVC.isAuthenticated " + (isAuthenticated() ? "yes" : "no"))
         if (!isAuthenticated()) {
             performSegueWithIdentifier("showAuthVC", sender: self)
+        }else {
+            if textField.canBecomeFirstResponder() {
+                textField.becomeFirstResponder()
+            }
+            listButton.setTitle("A very very very long list title", forState: .Normal)
         }
         
         // some tests

@@ -19,6 +19,7 @@
 		D91DDEBC1B30A3C60050A57C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDEBB1B30A3C60050A57C /* MainVC.swift */; };
 		D91DDEBE1B30A5AB0050A57C /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */; };
 		D91DDEC01B3113A60050A57C /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91DDEBF1B3113A60050A57C /* Common.framework */; };
+		D979D74C1B4CB4C400C2F107 /* AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		D91DDEBB1B30A3C60050A57C /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		D91DDEBF1B3113A60050A57C /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = Carthage/Build/iOS/Common.framework; sourceTree = "<group>"; };
+		D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		D91DDE951B30A3620050A57C /* QuickAdd */ = {
 			isa = PBXGroup;
 			children = (
+				D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */,
 				D91DDE981B30A3620050A57C /* AppDelegate.swift */,
 				D91DDEBB1B30A3C60050A57C /* MainVC.swift */,
 				D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */,
@@ -256,6 +259,7 @@
 				D91DDEBE1B30A5AB0050A57C /* AuthVC.swift in Sources */,
 				D91DDE9E1B30A3620050A57C /* ViewController.swift in Sources */,
 				D91DDEBC1B30A3C60050A57C /* MainVC.swift in Sources */,
+				D979D74C1B4CB4C400C2F107 /* AppExtensions.swift in Sources */,
 				D91DDE991B30A3620050A57C /* AppDelegate.swift in Sources */,
 				D91DDE9C1B30A3620050A57C /* QuickAdd.xcdatamodeld in Sources */,
 			);
