@@ -14,14 +14,17 @@ class MainVC: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var listButton: UIButton!
     
+    // TODO: load lists and show to picker when listButton is tapped
+    
+    // TODO: implement addItem to default list
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.headerView.backgroundColor = UIColor.appMainColor()
-//        self.navigationController!.navigationBar.barTintColor = UIColor.appMainColor()
         self.view.tintColor = UIColor.appDarkMainColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.appDarkMainColor()]
+//        self.navigationController!.navigationBar.barTintColor = UIColor.appMainColor()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -34,7 +37,9 @@ class MainVC: UIViewController {
             if textField.canBecomeFirstResponder() {
                 textField.becomeFirstResponder()
             }
-            listButton.setTitle("A very very very long list title", forState: .Normal)
+//            listButton.setTitle("A very very very long list title", forState: .Normal)
+            
+            // TODO: load Lists if empty
         }
         
         // some tests
