@@ -1,1 +1,2 @@
 github "nstinks0186/wlite-common-ios"
+github "morizotter/SwiftyDrop" ~> 1.0

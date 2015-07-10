@@ -21,6 +21,7 @@
 		D979D74C1B4CB4C400C2F107 /* AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */; };
 		D979D74E1B4CCB7E00C2F107 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */; };
 		D979D7511B4CCF2C00C2F107 /* WList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D7501B4CCF2C00C2F107 /* WList.swift */; };
+		D979D7531B50826800C2F107 /* SwiftyDrop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D979D7521B50826800C2F107 /* SwiftyDrop.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppExtensions.swift; sourceTree = "<group>"; };
 		D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		D979D7501B4CCF2C00C2F107 /* WList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WList.swift; sourceTree = "<group>"; };
+		D979D7521B50826800C2F107 /* SwiftyDrop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyDrop.framework; path = Carthage/Build/iOS/SwiftyDrop.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D979D7531B50826800C2F107 /* SwiftyDrop.framework in Frameworks */,
 				D7646B081B4C4A030083F97E /* Alamofire.framework in Frameworks */,
 				D7646B091B4C4A030083F97E /* OAuthSwift.framework in Frameworks */,
 				D91DDEC01B3113A60050A57C /* Common.framework in Frameworks */,
@@ -78,6 +81,7 @@
 		D91DDE8A1B30A3610050A57C = {
 			isa = PBXGroup;
 			children = (
+				D979D7521B50826800C2F107 /* SwiftyDrop.framework */,
 				D91DDE951B30A3620050A57C /* QuickAdd */,
 				D91DDEAE1B30A3620050A57C /* QuickAddTests */,
 				D91DDE941B30A3620050A57C /* Products */,
@@ -253,6 +257,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Common.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyDrop.framework",
 			);
 			outputPaths = (
 			);

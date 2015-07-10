@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import Common
+import SwiftyDrop
 
 class MainVC: UIViewController, UITextFieldDelegate {
 
@@ -109,16 +110,13 @@ class MainVC: UIViewController, UITextFieldDelegate {
             .request(CTaskRouter.CreateTask(parameters))
             .responseJSON(options: nil, completionHandler: {(request: NSURLRequest, response: NSHTTPURLResponse?, JSON: AnyObject?, error: NSError?) -> Void in
                 
-                // TODO: show some ui indication of success or failure
-                
                 if (error != nil) {
                     println("error: \(error)")
                     println("response: \(response)")
+                    Drop.down("Error: \(error)", state: .Success)
                 }
                 if (JSON != nil) {
-                    println("result: \(JSON!)")
-                    
-                    // TODO: create WTask class
+                    Drop.down("Item successfuly added...", state: .Success)
                 }
             })
     }
