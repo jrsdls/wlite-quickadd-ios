@@ -28,7 +28,7 @@ class MainVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         self.headerView.backgroundColor = UIColor.appMainColor()
-        self.view.tintColor = UIColor.appDarkMainColor()
+        self.view.backgroundColor = UIColor.appMainColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.appDarkMainColor()]
 //        self.navigationController!.navigationBar.barTintColor = UIColor.appMainColor()
     }

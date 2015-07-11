@@ -24,15 +24,15 @@ extension UIColor {
     // http://www.google.com/design/spec/style/color.html#color-color-palette
     
     class func appMainColor() -> UIColor {
-        return UIColor(hex: 0xFF8A65)
+        return UIColor(hex: 0x2A87D5) // http://colllor.com/2A87D5
     }
     
     class func appDarkMainColor() -> UIColor {
-        return UIColor(hex: 0xBF360C)
+        return UIColor(hex: 0x1E6299)
     }
     
     class func appGreyColor() -> UIColor{
-        return UIColor(hex: 0x9E9E9E)
+        return UIColor(hex: 0x071622)
     }
     
 }

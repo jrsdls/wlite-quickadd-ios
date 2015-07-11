@@ -10,6 +10,8 @@ import UIKit
 import Common
 
 class AuthVC: UIViewController {
+    
+    @IBOutlet weak var authenticateButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
