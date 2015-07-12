@@ -81,11 +81,11 @@
 		D91DDE8A1B30A3610050A57C = {
 			isa = PBXGroup;
 			children = (
-				D979D7521B50826800C2F107 /* SwiftyDrop.framework */,
 				D91DDE951B30A3620050A57C /* QuickAdd */,
 				D91DDEAE1B30A3620050A57C /* QuickAddTests */,
 				D91DDE941B30A3620050A57C /* Products */,
 				D91DDEBF1B3113A60050A57C /* Common.framework */,
+				D979D7521B50826800C2F107 /* SwiftyDrop.framework */,
 				D7646B061B4C4A030083F97E /* Alamofire.framework */,
 				D7646B071B4C4A030083F97E /* OAuthSwift.framework */,
 			);
