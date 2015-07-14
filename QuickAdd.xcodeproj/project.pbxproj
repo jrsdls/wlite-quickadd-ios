@@ -22,6 +22,7 @@
 		D979D74E1B4CCB7E00C2F107 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */; };
 		D979D7511B4CCF2C00C2F107 /* WList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D7501B4CCF2C00C2F107 /* WList.swift */; };
 		D979D7531B50826800C2F107 /* SwiftyDrop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D979D7521B50826800C2F107 /* SwiftyDrop.framework */; };
+		D979D7551B54923100C2F107 /* ListPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D7541B54923100C2F107 /* ListPickerVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		D979D7501B4CCF2C00C2F107 /* WList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WList.swift; sourceTree = "<group>"; };
 		D979D7521B50826800C2F107 /* SwiftyDrop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyDrop.framework; path = Carthage/Build/iOS/SwiftyDrop.framework; sourceTree = "<group>"; };
+		D979D7541B54923100C2F107 /* ListPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPickerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				D91DDE981B30A3620050A57C /* AppDelegate.swift */,
 				D91DDEBB1B30A3C60050A57C /* MainVC.swift */,
 				D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */,
+				D979D7541B54923100C2F107 /* ListPickerVC.swift */,
 				D91DDE9F1B30A3620050A57C /* Main.storyboard */,
 				D91DDEA21B30A3620050A57C /* Images.xcassets */,
 				D91DDEA41B30A3620050A57C /* LaunchScreen.xib */,
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D979D7551B54923100C2F107 /* ListPickerVC.swift in Sources */,
 				D91DDEBE1B30A5AB0050A57C /* AuthVC.swift in Sources */,
 				D979D7511B4CCF2C00C2F107 /* WList.swift in Sources */,
 				D91DDEBC1B30A3C60050A57C /* MainVC.swift in Sources */,

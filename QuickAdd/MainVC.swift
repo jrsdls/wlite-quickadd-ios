@@ -17,6 +17,8 @@ class MainVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var listButton: UIButton!
     
+    var pickerVC : ListPickerVC!
+    
     var lists = [WList]()
     var defaultList: WList!
     
@@ -27,8 +29,8 @@ class MainVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.headerView.backgroundColor = UIColor.appMainColor()
-        self.view.backgroundColor = UIColor.appMainColor()
+        self.headerView.backgroundColor = UIColor.appDarkMainColor()
+        self.view.backgroundColor = UIColor.appDarkMainColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.appDarkMainColor()]
 //        self.navigationController!.navigationBar.barTintColor = UIColor.appMainColor()
     }
@@ -54,6 +56,18 @@ class MainVC: UIViewController, UITextFieldDelegate {
             self.readLists()
         }
 
+    }
+    
+    // MARK: - Action Methods
+    
+    @IBAction func listButtonTapped(sender: UIButton) {
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let rect = CGRect(x: self.view.frame.width - ListPickerVC.width - 5, y: 16, width: ListPickerVC.width, height: ListPickerVC.height)
+        pickerVC = storyboard.instantiateViewControllerWithIdentifier("ListPickerVC") as! ListPickerVC
+        pickerVC.lists = lists
+        pickerVC.presentPickerFromRect(rect, inView: self.view, animated: true)
     }
     
     // MARK: - UITextFieldDelegate Methods

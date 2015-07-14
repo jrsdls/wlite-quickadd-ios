@@ -28,7 +28,7 @@ extension UIColor {
     }
     
     class func appDarkMainColor() -> UIColor {
-        return UIColor(hex: 0x1E6299)
+        return UIColor(hex: 0x1E5E92)
     }
     
     class func appGreyColor() -> UIColor{
