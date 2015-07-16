@@ -80,7 +80,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D70AEA361B58517E00BBDD8A /* ViewControllers */ = {
+		D70AEA381B58554F00BBDD8A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				D91DDEBB1B30A3C60050A57C /* MainVC.swift */,
@@ -90,7 +90,7 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		D70AEA371B5851A300BBDD8A /* Assets */ = {
+		D70AEA391B58556200BBDD8A /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				D91DDE9F1B30A3620050A57C /* Main.storyboard */,
@@ -126,12 +126,12 @@
 		D91DDE951B30A3620050A57C /* QuickAdd */ = {
 			isa = PBXGroup;
 			children = (
-				D979D74F1B4CCE9300C2F107 /* Wlite */,
-				D70AEA361B58517E00BBDD8A /* ViewControllers */,
 				D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */,
 				D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */,
 				D91DDE981B30A3620050A57C /* AppDelegate.swift */,
-				D70AEA371B5851A300BBDD8A /* Assets */,
+				D979D74F1B4CCE9300C2F107 /* Wlite */,
+				D70AEA381B58554F00BBDD8A /* ViewControllers */,
+				D70AEA391B58556200BBDD8A /* Assets */,
 				D91DDE961B30A3620050A57C /* Supporting Files */,
 			);
 			path = QuickAdd;
