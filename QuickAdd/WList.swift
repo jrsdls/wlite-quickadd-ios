@@ -41,10 +41,14 @@ enum WListListType : String {
 //}
 
 class WList : WObject{
+    // API endpoint properties
     var title = ""
     var listType : WListListType = .List
     
-    // Currently unused so commenting out for now
+    // local persistent object properties
+    var lastUsedDate : NSDate?
+    
+    // Currently unused so commenting out for now; this are actual Wunderlist List properties
 //    var createdAt = ""
 //    var ownerId = -1
 //    var ispublic = false
