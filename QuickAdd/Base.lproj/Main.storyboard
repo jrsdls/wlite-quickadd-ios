@@ -23,8 +23,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyL-bE-GYb">
                                         <rect key="frame" x="0.0" y="14" width="600" height="46"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Add an item in..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i38-FV-aZO">
-                                                <rect key="frame" x="8" y="15" width="537" height="17"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Add an item in..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="i38-FV-aZO">
+                                                <rect key="frame" x="8" y="14" width="537" height="19"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="go"/>
                                                 <connections>
