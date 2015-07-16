@@ -20,7 +20,7 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
     var pickerVC : ListPickerVC!
     
     var lists = [WList]()
-    var defaultList: WList!
+    var defaultList: WList?
     
     // TODO: load lists and show to picker when listButton is tapped
     
@@ -33,6 +33,10 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
         self.view.backgroundColor = UIColor.appDarkMainColor()
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.appDarkMainColor()]
 //        self.navigationController!.navigationBar.barTintColor = UIColor.appMainColor()
+        
+        if let defaultList = App.defaultList {
+            self.updateDefaultList(defaultList)
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -45,7 +49,6 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
             if textField.canBecomeFirstResponder() {
                 textField.becomeFirstResponder()
             }
-//            listButton.setTitle("A very very very long list title", forState: .Normal)
             
             Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = [
                 "X-Client-ID": App.clientID,
@@ -73,7 +76,7 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
     // MARK: - UITextFieldDelegate Methods
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if defaultList != nil {
+        if let defaultList = self.defaultList {
             self.createTask(textField.text, forList: defaultList.id)
             textField.text = ""
         }
@@ -86,8 +89,8 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
         vc.delegate = nil
         self.pickerVC = nil
         
-        self.defaultList = list;
-        self.listButton.setTitle(list.title.capitalizedString, forState: .Normal)
+        self.updateDefaultList(list)
+        App.defaultList = list
     }
     
     func pickerVCDidCancel(vc: ListPickerVC) {
@@ -118,8 +121,9 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
                         for rawList in rawLists {
                             let list = WList(rawList: rawList)
                             self.lists.append(list)
-                            if list.listType == .Inbox {
-                                self.defaultList = list
+                            if (self.defaultList == nil && list.listType == .Inbox) {
+                                self.updateDefaultList(list)
+                                App.defaultList = list
                             }
                         }
                     }
@@ -145,6 +149,11 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
                     Drop.down("Item successfuly added...", state: .Success)
                 }
             })
+    }
+    
+    private func updateDefaultList(list:WList) {
+        self.defaultList = list
+        self.listButton.setTitle(list.title.capitalizedString, forState: .Normal)
     }
 
 }

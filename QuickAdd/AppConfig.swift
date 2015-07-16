@@ -25,4 +25,24 @@ struct App {
             userDefaults.setObject(newValue, forKey: "com.wlite.oauth.accessToken")
         }
     }
+    static var defaultList : WList? {
+        get {
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            if (userDefaults.objectForKey("com.wlite.oauth.defaultList.title") != nil) {
+                let id = userDefaults.integerForKey("com.wlite.oauth.defaultList.id")
+                let revision = userDefaults.integerForKey("com.wlite.oauth.defaultList.revision")
+                let title = userDefaults.stringForKey("com.wlite.oauth.defaultList.title")
+                return WList(id: id, revision: revision, title: title!)
+            }
+            else {
+                return nil
+            }
+        }
+        set {
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            userDefaults.setInteger(newValue!.id, forKey: "com.wlite.oauth.defaultList.id")
+            userDefaults.setInteger(newValue!.revision, forKey: "com.wlite.oauth.defaultList.revision")
+            userDefaults.setObject(newValue!.title, forKey: "com.wlite.oauth.defaultList.title")
+        }
+    }
 }
