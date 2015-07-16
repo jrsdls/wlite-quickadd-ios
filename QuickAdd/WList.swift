@@ -30,14 +30,25 @@ class WObject {
     }
 }
 
-enum WListType : String {
+enum WListListType : String {
     case List = "list"
     case Inbox = "inbox"
 }
 
+// Currently unused so commenting out for now
+//enum WListType : String {
+//    case List = "list"
+//}
+
 class WList : WObject{
     var title = ""
-    var listType : WListType = .List
+    var listType : WListListType = .List
+    
+    // Currently unused so commenting out for now
+//    var createdAt = ""
+//    var ownerId = -1
+//    var ispublic = false
+//    var type : WListType = .List
     
     convenience init (id:Int, revision:Int, title:String){
         self.init(id: id, revision: revision)
@@ -48,16 +59,19 @@ class WList : WObject{
         let id = rawList["id"] as! Int
         let revision = rawList["revision"] as! Int
         let title = rawList["title"] as! String
-//        let createdAt = rawList["created_at"]
         let listType = rawList["list_type"] as! String
-//        let ownerId = rawList["owner_id"]
-//        let ownerType = rawList["owner_type"]
-//        let ispublic = rawList["public"]
-//        let type = rawList["type"]
-
+        
         self.init(id: id, revision: revision)
         self.title = title
         self.listType = (listType == "inbox" ? .Inbox : .List)
+        
+        // Currently unused so commenting out for now
+//        let createdAt = rawList["created_at"] as! String
+//        let ownerId = rawList["owner_id"] as! Int
+//        let ownerType = rawList["owner_type"] as! String
+//        let ispublic = rawList["public"] as! Int
+//        let type = rawList["type"] as! String
+//        println("\(createdAt) | \(ownerId) | \(ownerType) | \(ispublic) | \(type)")
         
     }
     

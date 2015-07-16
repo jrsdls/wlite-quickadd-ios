@@ -53,7 +53,7 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
             ]
             
             // TODO: load Lists if empty
-            self.readLists()
+            self.fetchLists()
         }
 
     }
@@ -103,7 +103,7 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
         return userDefaults.stringForKey("com.wlite.oauth.accessToken") != nil
     }
     
-    private func readLists() {
+    private func fetchLists() {
         Alamofire
             .request(CListRouter.ReadLists())
             .responseJSON(options: nil, completionHandler: {(request: NSURLRequest, response: NSHTTPURLResponse?, JSON: AnyObject?, error: NSError?) -> Void in
@@ -112,7 +112,7 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
                     println("response: \(response)")
                 }
                 if (JSON != nil) {
-                    println("result: \(JSON!)")
+//                    println("result: \(JSON!)")
                     self.lists = [WList]()
                     if let rawLists  = JSON as? [[String:AnyObject]] {
                         for rawList in rawLists {
