@@ -103,7 +103,7 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
         return userDefaults.stringForKey("com.wlite.oauth.accessToken") != nil
     }
     
-    func readLists() {
+    private func readLists() {
         Alamofire
             .request(CListRouter.ReadLists())
             .responseJSON(options: nil, completionHandler: {(request: NSURLRequest, response: NSHTTPURLResponse?, JSON: AnyObject?, error: NSError?) -> Void in
@@ -112,25 +112,22 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
                     println("response: \(response)")
                 }
                 if (JSON != nil) {
-//                    println("result: \(JSON!)")
+                    println("result: \(JSON!)")
                     self.lists = [WList]()
                     if let rawLists  = JSON as? [[String:AnyObject]] {
                         for rawList in rawLists {
-                            var list = WList(id: rawList["id"] as! Int, revision: rawList["revision"] as! Int, title: rawList["title"] as! String)
+                            let list = WList(rawList: rawList)
                             self.lists.append(list)
-//                            println(" * \(list.title) | \(list.id)")
-                            
-                            if list.title == "inbox" {
+                            if list.listType == .Inbox {
                                 self.defaultList = list
                             }
                         }
                     }
-//                    println("result: \(self.lists)")
                 }
             })
     }
     
-    func createTask(title: String, forList listid:Int){
+    private func createTask(title: String, forList listid:Int){
         let parameters : [ String : AnyObject] = [
             "title": title,
             "list_id": listid
