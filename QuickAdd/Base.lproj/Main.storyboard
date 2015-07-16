@@ -93,7 +93,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="280" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0yX-3G-Dgd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0yX-3G-Dgd">
                                 <rect key="frame" x="0.0" y="0.0" width="280" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -120,6 +120,13 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0yX-3G-Dgd" firstAttribute="leading" secondItem="VF7-Nz-RN7" secondAttribute="leadingMargin" constant="-16" id="D9W-qH-exV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0yX-3G-Dgd" secondAttribute="trailing" constant="-16" id="QLt-1O-zqM"/>
+                            <constraint firstItem="tLo-Ll-sWy" firstAttribute="top" secondItem="0yX-3G-Dgd" secondAttribute="bottom" id="bqB-1V-1Sc"/>
+                            <constraint firstItem="0yX-3G-Dgd" firstAttribute="top" secondItem="F95-DE-6Yb" secondAttribute="bottom" id="p88-Pn-lgL"/>
+                            <constraint firstItem="0yX-3G-Dgd" firstAttribute="top" secondItem="F95-DE-6Yb" secondAttribute="bottom" id="pwH-9P-tVl"/>
+                        </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

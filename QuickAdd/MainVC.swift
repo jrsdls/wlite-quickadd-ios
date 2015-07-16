@@ -11,7 +11,7 @@ import Alamofire
 import Common
 import SwiftyDrop
 
-class MainVC: UIViewController, UITextFieldDelegate {
+class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var textField: UITextField!
@@ -61,12 +61,12 @@ class MainVC: UIViewController, UITextFieldDelegate {
     // MARK: - Action Methods
     
     @IBAction func listButtonTapped(sender: UIButton) {
-        
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let rect = CGRect(x: self.view.frame.width - ListPickerVC.width - 5, y: 16, width: ListPickerVC.width, height: ListPickerVC.height)
+        pickerVC = nil
         pickerVC = storyboard.instantiateViewControllerWithIdentifier("ListPickerVC") as! ListPickerVC
         pickerVC.lists = lists
+        pickerVC.delegate = self
         pickerVC.presentPickerFromRect(rect, inView: self.view, animated: true)
     }
     
@@ -78,6 +78,21 @@ class MainVC: UIViewController, UITextFieldDelegate {
             textField.text = ""
         }
         return false
+    }
+    
+    // MARK: - ListPickerDelegate Methods
+    
+    func pickerVC(vc: ListPickerVC, didFinishPickingList list: WList) {
+        vc.delegate = nil
+        self.pickerVC = nil
+        
+        self.defaultList = list;
+        self.listButton.setTitle(list.title.capitalizedString, forState: .Normal)
+    }
+    
+    func pickerVCDidCancel(vc: ListPickerVC) {
+        vc.delegate = nil
+        self.pickerVC = nil
     }
     
     // MARK: - Convenience Methods
@@ -97,13 +112,13 @@ class MainVC: UIViewController, UITextFieldDelegate {
                     println("response: \(response)")
                 }
                 if (JSON != nil) {
-                    println("result: \(JSON!)")
+//                    println("result: \(JSON!)")
                     self.lists = [WList]()
                     if let rawLists  = JSON as? [[String:AnyObject]] {
                         for rawList in rawLists {
                             var list = WList(id: rawList["id"] as! Int, revision: rawList["revision"] as! Int, title: rawList["title"] as! String)
                             self.lists.append(list)
-                            println(" * \(list.title) | \(list.id)")
+//                            println(" * \(list.title) | \(list.id)")
                             
                             if list.title == "inbox" {
                                 self.defaultList = list

@@ -8,9 +8,16 @@
 
 import UIKit
 
-class ListPickerVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+protocol ListPickerDelegate {
+    func pickerVC(vc: ListPickerVC, didFinishPickingList list:WList)
+    func pickerVCDidCancel(vc: ListPickerVC)
+}
+
+class ListPickerVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
     var lists = [WList]()
+    var delegate : ListPickerDelegate?
+    var tap : UITapGestureRecognizer?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,11 +26,17 @@ class ListPickerVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     class var height : CGFloat {
-        return 320
+        return 220
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//        if self.respondsToSelector("edgesForExtendedLayout") {
+//            self.edgesForExtendedLayout = .None;
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,10 +44,28 @@ class ListPickerVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Action Methods
+    
+    func superViewTapped(tap: UITapGestureRecognizer) {
+        if let superview = self.view.superview {
+            superview.removeGestureRecognizer(tap)
+            
+            UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+                self.view.frame = CGRect(x: superview.frame.width, y: self.view.frame.origin.y, width: ListPickerVC.width, height: ListPickerVC.height)
+                }, completion: { (finished) -> Void in
+                    self.view.removeFromSuperview()
+                    self.delegate?.pickerVCDidCancel(self)
+            })
+        }
+        
+    }
+    
     // MARK: - Operations
     
     func presentPickerFromRect(rect: CGRect, inView view: UIView, animated: Bool) {
-        println("\(rect)")
+        self.tap = UITapGestureRecognizer(target: self, action: "superViewTapped:")
+        self.tap!.delegate = self
+        view.addGestureRecognizer(self.tap!)
         
         view.addSubview(self.view)
         self.view.frame = CGRect(x: view.frame.width, y: rect.origin.y, width: ListPickerVC.width, height: ListPickerVC.height)
@@ -51,15 +82,21 @@ class ListPickerVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
                 self.view.frame = CGRect(x: rect.origin.x, y: rect.origin.y, width: ListPickerVC.width, height: ListPickerVC.height)
             }, completion: { (finished) -> Void in
-                println("Animation success")
-                
-//                
-//                tableView.reloadData()
             })
         }
     }
+    
+    // MARK: - UIGestureRecognizerDelegate Methods
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        println("\(gestureRecognizer.view)")
+        if touch.view.isDescendantOfView(self.view ) {
+            return false;
+        }
+        return true
+    }
 
-    // MARK: - Table view data source
+    // MARK: - UITableViewDataSource Methods
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
@@ -77,9 +114,27 @@ class ListPickerVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCellWithIdentifier("ListPickerCellIdentifier", forIndexPath: indexPath) as! UITableViewCell
         
         let list = lists[indexPath.row]
-        cell.textLabel?.text = list.title
+        cell.textLabel?.text = list.title.capitalizedString
 
         return cell
+    }
+    
+    // MARK: - UITableViewDelegate Methods
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("delegate: \(self.delegate)")
+        if let superview = self.view.superview {
+            superview.removeGestureRecognizer(self.tap!)
+            
+            UIView.animateWithDuration(0.2, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+                self.view.frame = CGRect(x: superview.frame.width, y: self.view.frame.origin.y, width: ListPickerVC.width, height: ListPickerVC.height)
+                }, completion: { (finished) -> Void in
+                    self.view.removeFromSuperview()
+                    self.delegate?.pickerVC(self, didFinishPickingList: self.lists[indexPath.row])
+            })
+        }
+        
+        
     }
 
     /*

@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>97EC1FAE-AB4C-42B7-B905-DDD0254AB28C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>QuickAdd</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>D288D8C92933110B2D3A80EF4FC72F563E4BD6B4</key>
 		<string>https://github.com/nstinks0186/wlite-quickadd-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>QuickAdd.xcodeproj/project.xcworkspace</string>
+	<string>QuickAdd.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D288D8C92933110B2D3A80EF4FC72F563E4BD6B4</key>
