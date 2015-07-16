@@ -80,6 +80,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D70AEA361B58517E00BBDD8A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D91DDEBB1B30A3C60050A57C /* MainVC.swift */,
+				D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */,
+				D979D7541B54923100C2F107 /* ListPickerVC.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D70AEA371B5851A300BBDD8A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D91DDE9F1B30A3620050A57C /* Main.storyboard */,
+				D91DDEA21B30A3620050A57C /* Images.xcassets */,
+				D91DDEA41B30A3620050A57C /* LaunchScreen.xib */,
+				D91DDE9A1B30A3620050A57C /* QuickAdd.xcdatamodeld */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		D91DDE8A1B30A3610050A57C = {
 			isa = PBXGroup;
 			children = (
@@ -106,16 +127,11 @@
 			isa = PBXGroup;
 			children = (
 				D979D74F1B4CCE9300C2F107 /* Wlite */,
+				D70AEA361B58517E00BBDD8A /* ViewControllers */,
 				D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */,
 				D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */,
 				D91DDE981B30A3620050A57C /* AppDelegate.swift */,
-				D91DDEBB1B30A3C60050A57C /* MainVC.swift */,
-				D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */,
-				D979D7541B54923100C2F107 /* ListPickerVC.swift */,
-				D91DDE9F1B30A3620050A57C /* Main.storyboard */,
-				D91DDEA21B30A3620050A57C /* Images.xcassets */,
-				D91DDEA41B30A3620050A57C /* LaunchScreen.xib */,
-				D91DDE9A1B30A3620050A57C /* QuickAdd.xcdatamodeld */,
+				D70AEA371B5851A300BBDD8A /* Assets */,
 				D91DDE961B30A3620050A57C /* Supporting Files */,
 			);
 			path = QuickAdd;
