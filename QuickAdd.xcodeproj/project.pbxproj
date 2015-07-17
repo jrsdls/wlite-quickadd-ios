@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D747D5BF1B59A4B100B1C5C0 /* MOList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5BE1B59A4B100B1C5C0 /* MOList.swift */; };
 		D7646B081B4C4A030083F97E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7646B061B4C4A030083F97E /* Alamofire.framework */; };
 		D7646B091B4C4A030083F97E /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7646B071B4C4A030083F97E /* OAuthSwift.framework */; };
 		D91DDE991B30A3620050A57C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDE981B30A3620050A57C /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D747D5BE1B59A4B100B1C5C0 /* MOList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOList.swift; sourceTree = "<group>"; };
 		D7646B061B4C4A030083F97E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D7646B071B4C4A030083F97E /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = Carthage/Build/iOS/OAuthSwift.framework; sourceTree = "<group>"; };
 		D91DDE931B30A3620050A57C /* QuickAdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickAdd.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +103,14 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		D747D5BD1B59A48D00B1C5C0 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				D747D5BE1B59A4B100B1C5C0 /* MOList.swift */,
+			);
+			name = ManagedObjects;
+			sourceTree = "<group>";
+		};
 		D91DDE8A1B30A3610050A57C = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 				D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */,
 				D91DDE981B30A3620050A57C /* AppDelegate.swift */,
 				D979D74F1B4CCE9300C2F107 /* Wlite */,
+				D747D5BD1B59A48D00B1C5C0 /* ManagedObjects */,
 				D70AEA381B58554F00BBDD8A /* ViewControllers */,
 				D70AEA391B58556200BBDD8A /* Assets */,
 				D91DDE961B30A3620050A57C /* Supporting Files */,
@@ -293,6 +304,7 @@
 			files = (
 				D979D7551B54923100C2F107 /* ListPickerVC.swift in Sources */,
 				D91DDEBE1B30A5AB0050A57C /* AuthVC.swift in Sources */,
+				D747D5BF1B59A4B100B1C5C0 /* MOList.swift in Sources */,
 				D979D7511B4CCF2C00C2F107 /* WList.swift in Sources */,
 				D91DDEBC1B30A3C60050A57C /* MainVC.swift in Sources */,
 				D979D74E1B4CCB7E00C2F107 /* AppConfig.swift in Sources */,

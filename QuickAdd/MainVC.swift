@@ -22,8 +22,6 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
     var lists = [WList]()
     var defaultList: WList?
     
-    // TODO: load lists and show to picker when listButton is tapped
-    
     // TODO: implement addItem to default list
     
     override func viewDidLoad() {
@@ -37,6 +35,11 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
         if let defaultList = App.defaultList {
             self.updateDefaultList(defaultList)
         }
+        
+        if let lists = App.lists {
+            self.lists = lists
+        }
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -55,8 +58,9 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
                 "X-Access-Token": App.accessToken!
             ]
             
-            // TODO: load Lists if empty
-            self.fetchLists()
+            if self.lists.count <= 0 {
+                self.fetchLists()
+            }
         }
 
     }
@@ -64,13 +68,15 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
     // MARK: - Action Methods
     
     @IBAction func listButtonTapped(sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let rect = CGRect(x: self.view.frame.width - ListPickerVC.width - 5, y: 16, width: ListPickerVC.width, height: ListPickerVC.height)
-        pickerVC = nil
-        pickerVC = storyboard.instantiateViewControllerWithIdentifier("ListPickerVC") as! ListPickerVC
-        pickerVC.lists = lists
-        pickerVC.delegate = self
-        pickerVC.presentPickerFromRect(rect, inView: self.view, animated: true)
+        if (self.lists.count > 0) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let rect = CGRect(x: self.view.frame.width - ListPickerVC.width - 5, y: 16, width: ListPickerVC.width, height: ListPickerVC.height)
+            pickerVC = nil
+            pickerVC = storyboard.instantiateViewControllerWithIdentifier("ListPickerVC") as! ListPickerVC
+            pickerVC.lists = lists
+            pickerVC.delegate = self
+            pickerVC.presentPickerFromRect(rect, inView: self.view, animated: true)
+        }
     }
     
     // MARK: - UITextFieldDelegate Methods
@@ -133,6 +139,9 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
                     self.lists.sort({ (list1:WList, list2:WList) -> Bool in
                         return list1.title < list2.title
                     })
+                    
+                    // TODO: update local database
+                    App.lists = self.lists
                 }
             })
     }

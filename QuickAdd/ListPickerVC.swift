@@ -89,7 +89,6 @@ class ListPickerVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     // MARK: - UIGestureRecognizerDelegate Methods
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-        println("\(gestureRecognizer.view)")
         if touch.view.isDescendantOfView(self.view ) {
             return false;
         }
