@@ -127,6 +127,12 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
                             }
                         }
                     }
+//                    self.lists.sort({ (list1:WList, list2:WList) -> Bool in
+//                        return list1.revision < list2.revision
+//                    })
+                    self.lists.sort({ (list1:WList, list2:WList) -> Bool in
+                        return list1.title < list2.title
+                    })
                 }
             })
     }
