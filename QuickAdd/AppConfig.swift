@@ -70,12 +70,18 @@ struct App {
             if let lists = newValue {
                 if let moc = App.delegate.managedObjectContext {
                     for list in lists {
-                        var mo = NSEntityDescription.insertNewObjectForEntityForName("WList", inManagedObjectContext: moc) as! MOList
-                        mo.id = Int32(list.id)
-                        mo.revision = Int32(list.revision)
-                        mo.title = list.title
-                        mo.listType = list.listType.rawValue
-                        mo.lastUsedDate = (list.lastUsedDate != nil ? list.lastUsedDate! : NSDate(timeIntervalSinceReferenceDate: 0))
+                        var request = NSFetchRequest(entityName: "WList")
+                        request.predicate = NSPredicate(format: "id = %i", list.id)
+                        if let results = moc.executeFetchRequest(request, error: nil){
+                            if(results.isEmpty){
+                                var mo = NSEntityDescription.insertNewObjectForEntityForName("WList", inManagedObjectContext: moc) as! MOList
+                                mo.id = Int32(list.id)
+                                mo.revision = Int32(list.revision)
+                                mo.title = list.title
+                                mo.listType = list.listType.rawValue
+                                mo.lastUsedDate = (list.lastUsedDate != nil ? list.lastUsedDate! : NSDate(timeIntervalSinceReferenceDate: 0))
+                            }
+                        }
                     }
                     moc.save(nil)
                 }

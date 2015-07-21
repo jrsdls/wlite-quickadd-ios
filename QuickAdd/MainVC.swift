@@ -37,7 +37,7 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
         }
         
         if let lists = App.lists {
-            self.lists = lists
+            self.updateLists(lists)
         }
         
     }
@@ -122,26 +122,21 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
                 }
                 if (JSON != nil) {
 //                    println("result: \(JSON!)")
-                    self.lists = [WList]()
+                    var lists = [WList]()
                     if let rawLists  = JSON as? [[String:AnyObject]] {
                         for rawList in rawLists {
                             let list = WList(rawList: rawList)
-                            self.lists.append(list)
+                            lists.append(list)
                             if (self.defaultList == nil && list.listType == .Inbox) {
                                 self.updateDefaultList(list)
                                 App.defaultList = list
                             }
                         }
                     }
-//                    self.lists.sort({ (list1:WList, list2:WList) -> Bool in
-//                        return list1.revision < list2.revision
-//                    })
-                    self.lists.sort({ (list1:WList, list2:WList) -> Bool in
-                        return list1.title < list2.title
-                    })
+                    self.updateLists(lists)
                     
-                    // TODO: update local database
-                    App.lists = self.lists
+                    // update local database
+                    App.lists = lists
                 }
             })
     }
@@ -169,6 +164,18 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
     private func updateDefaultList(list:WList) {
         self.defaultList = list
         self.listButton.setTitle(list.title.capitalizedString, forState: .Normal)
+    }
+    
+    private func updateLists(lists:[WList]) {
+        self.lists = lists
+        self.lists.sort({ (list1:WList, list2:WList) -> Bool in
+            let timeinterval1 = (list1.lastUsedDate != nil ? list1.lastUsedDate?.timeIntervalSinceReferenceDate : 0)
+            let timeinterval2 = (list2.lastUsedDate != nil ? list2.lastUsedDate?.timeIntervalSinceReferenceDate : 0)
+            return timeinterval1 > timeinterval2
+        })
+        self.lists.sort({ (list1:WList, list2:WList) -> Bool in
+            return list1.title < list2.title
+        })
     }
 
 }
