@@ -29,14 +29,14 @@ struct App {
     }
  
     // User lists
-    static var defaultList : WList? {
+    static var defaultList : List? {
         get {
             let userDefaults = NSUserDefaults.standardUserDefaults()
             if (userDefaults.objectForKey("com.wlite.oauth.defaultList.title") != nil) {
                 let id = userDefaults.integerForKey("com.wlite.oauth.defaultList.id")
                 let revision = userDefaults.integerForKey("com.wlite.oauth.defaultList.revision")
                 let title = userDefaults.stringForKey("com.wlite.oauth.defaultList.title")
-                return WList(id: id, revision: revision, title: title!)
+                return List(id: id, revision: revision, title: title!)
             }
             else {
                 return nil
@@ -49,17 +49,15 @@ struct App {
             userDefaults.setObject(newValue!.title, forKey: "com.wlite.oauth.defaultList.title")
         }
     }
-    static var lists : [WList]? {
+    static var lists : [List]? {
         get {
             if let moc = App.delegate.managedObjectContext {
                 let request = NSFetchRequest(entityName: "WList")
                 if let results = moc.executeFetchRequest(request, error: nil) {
-                    // TODO: error handling
-//                    println("results: \(results)")
-                    var lists = [WList]()
+                    var lists = [List]()
                     for object in results {
                         let molist = object as! MOList
-                        lists.append(WList(molist: molist))
+                        lists.append(List(molist: molist))
                     }
                     return (lists.count > 0 ? lists : nil)
                 }

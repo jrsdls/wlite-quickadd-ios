@@ -8,6 +8,7 @@
 
 import UIKit
 import Common
+import SwiftyDrop
 
 class AuthVC: UIViewController {
     
@@ -26,42 +27,19 @@ class AuthVC: UIViewController {
     // MARK: - Action Methods
     
     @IBAction func authenticateButtonTapped(sender: AnyObject) {
-        // TODO: do authentication here
-        println("AuthVC authenticateButtonTapped")
         
         let callbackURL = "https://dl.dropboxusercontent.com/u/33491043/sites/wlite/quickadd/success.html"
-        Wlite.authorizeWithCallbackURL(callbackURL, successHandler: { (token) -> Void in
-            println("authorization successful: \(token)")
-            
-            // TODO: close auth page (this page)
+        let successHandler : WliteAuthorizeSuccessHandler = { (token) -> Void in
             self.presentingViewController?.dismissViewControllerAnimated(true, completion: { () -> Void in
-                println("AuthVC dismissed ...");
+               
             });
-            
-            
-            //            self.readUser()
-            //            self.readFolders()
-            //            self.readFolderRevisions()
-            //            self.readFolder("946735")
-            //            self.readLists()
-            //            self.createList("Bucket")
-            //            self.readList("86173208")
-            //            self.createTask("Test task, hola mundo!", forList: 164291775);
-            //            self.readTasks("86173208")
-            
-            }) { (error) -> Void in
-                println("authorization failed: \(error)")
-        };
+        }
+        let failureHandler : WliteAuthorizeFailureHandler = { (error) -> Void in
+            println("authorization failed: \(error)")
+            Drop.down("Error: \(error)", state: .Error)
+        }
+        
+        Wlite.authorizeWithCallbackURL(callbackURL, successHandler: successHandler, failureHandler: failureHandler);
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

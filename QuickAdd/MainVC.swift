@@ -19,10 +19,8 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
     
     var pickerVC : ListPickerVC!
     
-    var lists = [WList]()
-    var defaultList: WList?
-    
-    // TODO: implement addItem to default list
+    var lists = [List]()
+    var defaultList: List?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,17 +34,16 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
             self.updateDefaultList(defaultList)
         }
         
-        if let lists = App.lists {
-            self.updateLists(lists)
-        }
+        // load lists
+        self.loadListsFromLocalStore()
         
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        println("MainVC.isAuthenticated " + (isAuthenticated() ? "yes" : "no"))
-        if (!isAuthenticated()) {
+        println("MainVC.isAuthenticated " + (App.accessToken != nil ? "yes" : "no"))
+        if (App.accessToken == nil) {
             performSegueWithIdentifier("showAuthVC", sender: self)
         }else {
             if textField.canBecomeFirstResponder() {
@@ -58,8 +55,29 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
                 "X-Access-Token": App.accessToken!
             ]
             
-            if self.lists.count <= 0 {
-                self.fetchLists()
+            CloudStore.fetchLists {(request: NSURLRequest, response: NSHTTPURLResponse?, JSON: AnyObject?, error: NSError?) -> Void in
+                if (error != nil) {
+                    println("error: \(error)")
+                }
+                if (JSON != nil) {
+                    if let rawLists  = JSON as? [[String:AnyObject]] {
+                        
+                        // update local database
+                        LocalStore.lists = listsFromRawLists(rawLists)
+                        
+                        // reload lists
+                        self.loadListsFromLocalStore()
+                    }
+                    else if let rawObject = JSON as? [String:AnyObject]{
+                        if let jsonError = rawObject["error"] as? [String:AnyObject]{
+                            let werror = WError(rawError: jsonError)
+                            if werror.isAuthenticationError {
+                                App.accessToken = nil
+                                self.performSegueWithIdentifier("showAuthVC", sender: self)
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -73,7 +91,7 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
             let rect = CGRect(x: self.view.frame.width - ListPickerVC.width - 5, y: 16, width: ListPickerVC.width, height: ListPickerVC.height)
             pickerVC = nil
             pickerVC = storyboard.instantiateViewControllerWithIdentifier("ListPickerVC") as! ListPickerVC
-            pickerVC.lists = lists
+            pickerVC.lists = self.lists
             pickerVC.delegate = self
             pickerVC.presentPickerFromRect(rect, inView: self.view, animated: true)
         }
@@ -83,15 +101,32 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let defaultList = self.defaultList {
-            self.createTask(textField.text, forList: defaultList.id)
-            textField.text = ""
+            CloudStore.createTask(WTask(title: textField.text, listId: defaultList.id), completionHandler: {(request: NSURLRequest, response: NSHTTPURLResponse?, JSON: AnyObject?, error: NSError?) -> Void in
+                
+                if (error != nil) {
+                    println("error: \(error)")
+                    println("response: \(response)")
+                    Drop.down("Error: \(error)", state: .Error)
+                }
+                if (JSON != nil) {
+                    Drop.down("Item successfuly added...", state: .Success)
+                    textField.text = ""
+                    
+                    // update local database
+                    self.defaultList?.lastUsedDate = NSDate()
+                    LocalStore.updateList(self.defaultList!)
+                    
+                    // reload lists
+                    self.loadListsFromLocalStore()
+                }
+            })
         }
         return false
     }
     
     // MARK: - ListPickerDelegate Methods
     
-    func pickerVC(vc: ListPickerVC, didFinishPickingList list: WList) {
+    func pickerVC(vc: ListPickerVC, didFinishPickingList list: List) {
         vc.delegate = nil
         self.pickerVC = nil
         
@@ -106,75 +141,42 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
     
     // MARK: - Convenience Methods
     
-    private func isAuthenticated() -> Bool{
-        // TODO: build new common framework release with latest code and use Wlite.isAuthenticated()
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        return userDefaults.stringForKey("com.wlite.oauth.accessToken") != nil
-    }
-    
-    private func fetchLists() {
-        Alamofire
-            .request(CListRouter.ReadLists())
-            .responseJSON(options: nil, completionHandler: {(request: NSURLRequest, response: NSHTTPURLResponse?, JSON: AnyObject?, error: NSError?) -> Void in
-                if (error != nil) {
-                    println("error: \(error)")
-                    println("response: \(response)")
-                }
-                if (JSON != nil) {
-//                    println("result: \(JSON!)")
-                    var lists = [WList]()
-                    if let rawLists  = JSON as? [[String:AnyObject]] {
-                        for rawList in rawLists {
-                            let list = WList(rawList: rawList)
-                            lists.append(list)
-                            if (self.defaultList == nil && list.listType == .Inbox) {
+    private func loadListsFromLocalStore() {
+        LocalStore.asynchronousFetchLists { (result, error) -> Void in
+            if (error != nil) {
+                println("error: \(error)")
+            }
+            if (result != nil) {
+                if let molists = result!.finalResult {
+                    // update list picker lists
+                    self.lists = listsFromMOLists(molists as! [MOList])
+                    self.sortLists()
+                    
+                    // update default list if necessary
+                    if self.defaultList == nil  {
+                        for list in self.lists {
+                            if (list.listType == .Inbox) {
                                 self.updateDefaultList(list)
                                 App.defaultList = list
                             }
                         }
                     }
-                    self.updateLists(lists)
-                    
-                    // update local database
-                    App.lists = lists
                 }
-            })
+            }
+        }
     }
     
-    private func createTask(title: String, forList listid:Int){
-        let parameters : [ String : AnyObject] = [
-            "title": title,
-            "list_id": listid
-        ]
-        Alamofire
-            .request(CTaskRouter.CreateTask(parameters))
-            .responseJSON(options: nil, completionHandler: {(request: NSURLRequest, response: NSHTTPURLResponse?, JSON: AnyObject?, error: NSError?) -> Void in
-                
-                if (error != nil) {
-                    println("error: \(error)")
-                    println("response: \(response)")
-                    Drop.down("Error: \(error)", state: .Success)
-                }
-                if (JSON != nil) {
-                    Drop.down("Item successfuly added...", state: .Success)
-                }
-            })
-    }
-    
-    private func updateDefaultList(list:WList) {
+    private func updateDefaultList(list:List) {
         self.defaultList = list
         self.listButton.setTitle(list.title.capitalizedString, forState: .Normal)
     }
     
-    private func updateLists(lists:[WList]) {
-        self.lists = lists
-        self.lists.sort({ (list1:WList, list2:WList) -> Bool in
-            let timeinterval1 = (list1.lastUsedDate != nil ? list1.lastUsedDate?.timeIntervalSinceReferenceDate : 0)
-            let timeinterval2 = (list2.lastUsedDate != nil ? list2.lastUsedDate?.timeIntervalSinceReferenceDate : 0)
-            return timeinterval1 > timeinterval2
-        })
-        self.lists.sort({ (list1:WList, list2:WList) -> Bool in
+    private func sortLists() {
+        self.lists.sort({ (list1:List, list2:List) -> Bool in
             return list1.title < list2.title
+        })
+        self.lists.sort({ (list1:List, list2:List) -> Bool in
+            return list1.lastUsedDateSortValue > list2.lastUsedDateSortValue
         })
     }
 

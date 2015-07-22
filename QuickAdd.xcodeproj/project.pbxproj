@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D747D5BF1B59A4B100B1C5C0 /* MOList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5BE1B59A4B100B1C5C0 /* MOList.swift */; };
+		D747D5C11B5FE97C00B1C5C0 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5C01B5FE97C00B1C5C0 /* List.swift */; };
+		D747D5C31B5FEC8700B1C5C0 /* CloudStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5C21B5FEC8700B1C5C0 /* CloudStore.swift */; };
+		D747D5C51B5FEC9100B1C5C0 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5C41B5FEC9100B1C5C0 /* LocalStore.swift */; };
+		D747D5C71B5FEE2600B1C5C0 /* WObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5C61B5FEE2600B1C5C0 /* WObject.swift */; };
+		D747D5C91B5FF3AB00B1C5C0 /* WTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5C81B5FF3AB00B1C5C0 /* WTask.swift */; };
+		D747D5CB1B60099600B1C5C0 /* WError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5CA1B60099600B1C5C0 /* WError.swift */; };
 		D7646B081B4C4A030083F97E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7646B061B4C4A030083F97E /* Alamofire.framework */; };
 		D7646B091B4C4A030083F97E /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7646B071B4C4A030083F97E /* OAuthSwift.framework */; };
 		D91DDE991B30A3620050A57C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDE981B30A3620050A57C /* AppDelegate.swift */; };
@@ -38,6 +44,12 @@
 
 /* Begin PBXFileReference section */
 		D747D5BE1B59A4B100B1C5C0 /* MOList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOList.swift; sourceTree = "<group>"; };
+		D747D5C01B5FE97C00B1C5C0 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		D747D5C21B5FEC8700B1C5C0 /* CloudStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudStore.swift; sourceTree = "<group>"; };
+		D747D5C41B5FEC9100B1C5C0 /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
+		D747D5C61B5FEE2600B1C5C0 /* WObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WObject.swift; sourceTree = "<group>"; };
+		D747D5C81B5FF3AB00B1C5C0 /* WTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WTask.swift; sourceTree = "<group>"; };
+		D747D5CA1B60099600B1C5C0 /* WError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WError.swift; sourceTree = "<group>"; };
 		D7646B061B4C4A030083F97E /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D7646B071B4C4A030083F97E /* OAuthSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OAuthSwift.framework; path = Carthage/Build/iOS/OAuthSwift.framework; sourceTree = "<group>"; };
 		D91DDE931B30A3620050A57C /* QuickAdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickAdd.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +151,9 @@
 				D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */,
 				D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */,
 				D91DDE981B30A3620050A57C /* AppDelegate.swift */,
+				D747D5C01B5FE97C00B1C5C0 /* List.swift */,
+				D747D5C21B5FEC8700B1C5C0 /* CloudStore.swift */,
+				D747D5C41B5FEC9100B1C5C0 /* LocalStore.swift */,
 				D979D74F1B4CCE9300C2F107 /* Wlite */,
 				D747D5BD1B59A48D00B1C5C0 /* ManagedObjects */,
 				D70AEA381B58554F00BBDD8A /* ViewControllers */,
@@ -176,7 +191,10 @@
 		D979D74F1B4CCE9300C2F107 /* Wlite */ = {
 			isa = PBXGroup;
 			children = (
+				D747D5C61B5FEE2600B1C5C0 /* WObject.swift */,
 				D979D7501B4CCF2C00C2F107 /* WList.swift */,
+				D747D5C81B5FF3AB00B1C5C0 /* WTask.swift */,
+				D747D5CA1B60099600B1C5C0 /* WError.swift */,
 			);
 			name = Wlite;
 			sourceTree = "<group>";
@@ -302,15 +320,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D747D5C91B5FF3AB00B1C5C0 /* WTask.swift in Sources */,
+				D747D5C31B5FEC8700B1C5C0 /* CloudStore.swift in Sources */,
+				D747D5CB1B60099600B1C5C0 /* WError.swift in Sources */,
 				D979D7551B54923100C2F107 /* ListPickerVC.swift in Sources */,
 				D91DDEBE1B30A5AB0050A57C /* AuthVC.swift in Sources */,
 				D747D5BF1B59A4B100B1C5C0 /* MOList.swift in Sources */,
+				D747D5C71B5FEE2600B1C5C0 /* WObject.swift in Sources */,
+				D747D5C11B5FE97C00B1C5C0 /* List.swift in Sources */,
 				D979D7511B4CCF2C00C2F107 /* WList.swift in Sources */,
 				D91DDEBC1B30A3C60050A57C /* MainVC.swift in Sources */,
 				D979D74E1B4CCB7E00C2F107 /* AppConfig.swift in Sources */,
 				D979D74C1B4CB4C400C2F107 /* AppExtensions.swift in Sources */,
 				D91DDE991B30A3620050A57C /* AppDelegate.swift in Sources */,
 				D91DDE9C1B30A3620050A57C /* QuickAdd.xcdatamodeld in Sources */,
+				D747D5C51B5FEC9100B1C5C0 /* LocalStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

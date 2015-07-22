@@ -16,19 +16,3 @@ class MOList: NSManagedObject {
     @NSManaged var listType: String
     @NSManaged var lastUsedDate: NSDate
 }
-
-extension WList {
-    convenience init(molist: MOList) {
-        let id = Int(molist.id)
-        let revision = Int(molist.revision)
-        let title = molist.title
-        let listType = molist.listType
-        let lastUsedDate = molist.lastUsedDate
-        
-        self.init(id: id, revision: revision)
-        self.title = title
-        self.listType = (listType == "inbox" ? .Inbox : .List)
-        self.lastUsedDate = (lastUsedDate.timeIntervalSinceReferenceDate > 0 ? lastUsedDate : nil)
-        
-    }
-}

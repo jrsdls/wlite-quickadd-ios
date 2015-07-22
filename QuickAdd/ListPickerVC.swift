@@ -9,13 +9,13 @@
 import UIKit
 
 protocol ListPickerDelegate {
-    func pickerVC(vc: ListPickerVC, didFinishPickingList list:WList)
+    func pickerVC(vc: ListPickerVC, didFinishPickingList list:List)
     func pickerVCDidCancel(vc: ListPickerVC)
 }
 
 class ListPickerVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
-    var lists = [WList]()
+    var lists = [List]()
     var delegate : ListPickerDelegate?
     var tap : UITapGestureRecognizer?
     
