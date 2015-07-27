@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D70F40BA1B66CB06001B55D2 /* Wlite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70F40B91B66CB06001B55D2 /* Wlite.framework */; };
 		D747D5BF1B59A4B100B1C5C0 /* MOList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5BE1B59A4B100B1C5C0 /* MOList.swift */; };
-		D747D5C11B5FE97C00B1C5C0 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5C01B5FE97C00B1C5C0 /* List.swift */; };
 		D747D5C31B5FEC8700B1C5C0 /* CloudStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5C21B5FEC8700B1C5C0 /* CloudStore.swift */; };
 		D747D5C51B5FEC9100B1C5C0 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5C41B5FEC9100B1C5C0 /* LocalStore.swift */; };
 		D747D5C71B5FEE2600B1C5C0 /* WObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747D5C61B5FEE2600B1C5C0 /* WObject.swift */; };
@@ -24,7 +24,6 @@
 		D91DDEB21B30A3620050A57C /* QuickAddTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDEB11B30A3620050A57C /* QuickAddTests.swift */; };
 		D91DDEBC1B30A3C60050A57C /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDEBB1B30A3C60050A57C /* MainVC.swift */; };
 		D91DDEBE1B30A5AB0050A57C /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */; };
-		D91DDEC01B3113A60050A57C /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91DDEBF1B3113A60050A57C /* Common.framework */; };
 		D979D74C1B4CB4C400C2F107 /* AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */; };
 		D979D74E1B4CCB7E00C2F107 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */; };
 		D979D7511B4CCF2C00C2F107 /* WList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979D7501B4CCF2C00C2F107 /* WList.swift */; };
@@ -43,8 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D70F40B91B66CB06001B55D2 /* Wlite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Wlite.framework; path = Carthage/Build/iOS/Wlite.framework; sourceTree = "<group>"; };
 		D747D5BE1B59A4B100B1C5C0 /* MOList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOList.swift; sourceTree = "<group>"; };
-		D747D5C01B5FE97C00B1C5C0 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		D747D5C21B5FEC8700B1C5C0 /* CloudStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudStore.swift; sourceTree = "<group>"; };
 		D747D5C41B5FEC9100B1C5C0 /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		D747D5C61B5FEE2600B1C5C0 /* WObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WObject.swift; sourceTree = "<group>"; };
@@ -64,7 +63,6 @@
 		D91DDEB11B30A3620050A57C /* QuickAddTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickAddTests.swift; sourceTree = "<group>"; };
 		D91DDEBB1B30A3C60050A57C /* MainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		D91DDEBD1B30A5AB0050A57C /* AuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
-		D91DDEBF1B3113A60050A57C /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = Carthage/Build/iOS/Common.framework; sourceTree = "<group>"; };
 		D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppExtensions.swift; sourceTree = "<group>"; };
 		D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		D979D7501B4CCF2C00C2F107 /* WList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WList.swift; sourceTree = "<group>"; };
@@ -77,10 +75,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70F40BA1B66CB06001B55D2 /* Wlite.framework in Frameworks */,
 				D979D7531B50826800C2F107 /* SwiftyDrop.framework in Frameworks */,
 				D7646B081B4C4A030083F97E /* Alamofire.framework in Frameworks */,
 				D7646B091B4C4A030083F97E /* OAuthSwift.framework in Frameworks */,
-				D91DDEC01B3113A60050A57C /* Common.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,10 +127,10 @@
 				D91DDE951B30A3620050A57C /* QuickAdd */,
 				D91DDEAE1B30A3620050A57C /* QuickAddTests */,
 				D91DDE941B30A3620050A57C /* Products */,
-				D91DDEBF1B3113A60050A57C /* Common.framework */,
 				D979D7521B50826800C2F107 /* SwiftyDrop.framework */,
 				D7646B061B4C4A030083F97E /* Alamofire.framework */,
 				D7646B071B4C4A030083F97E /* OAuthSwift.framework */,
+				D70F40B91B66CB06001B55D2 /* Wlite.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,7 +149,6 @@
 				D979D74D1B4CCB7E00C2F107 /* AppConfig.swift */,
 				D979D74B1B4CB4C400C2F107 /* AppExtensions.swift */,
 				D91DDE981B30A3620050A57C /* AppDelegate.swift */,
-				D747D5C01B5FE97C00B1C5C0 /* List.swift */,
 				D747D5C21B5FEC8700B1C5C0 /* CloudStore.swift */,
 				D747D5C41B5FEC9100B1C5C0 /* LocalStore.swift */,
 				D979D74F1B4CCE9300C2F107 /* Wlite */,
@@ -302,7 +299,7 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Common.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Wlite.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/OAuthSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyDrop.framework",
@@ -327,7 +324,6 @@
 				D91DDEBE1B30A5AB0050A57C /* AuthVC.swift in Sources */,
 				D747D5BF1B59A4B100B1C5C0 /* MOList.swift in Sources */,
 				D747D5C71B5FEE2600B1C5C0 /* WObject.swift in Sources */,
-				D747D5C11B5FE97C00B1C5C0 /* List.swift in Sources */,
 				D979D7511B4CCF2C00C2F107 /* WList.swift in Sources */,
 				D91DDEBC1B30A3C60050A57C /* MainVC.swift in Sources */,
 				D979D74E1B4CCB7E00C2F107 /* AppConfig.swift in Sources */,
@@ -467,6 +463,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = QuickAdd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -482,6 +479,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = QuickAdd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

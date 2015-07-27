@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Common
+import Wlite
 import SwiftyDrop
 
 class AuthVC: UIViewController {
@@ -28,18 +28,16 @@ class AuthVC: UIViewController {
     
     @IBAction func authenticateButtonTapped(sender: AnyObject) {
         
-        let callbackURL = "https://dl.dropboxusercontent.com/u/33491043/sites/wlite/quickadd/success.html"
-        let successHandler : WliteAuthorizeSuccessHandler = { (token) -> Void in
-            self.presentingViewController?.dismissViewControllerAnimated(true, completion: { () -> Void in
-               
-            });
+        let successHandler:AuthorizeSuccessHandler = {(_) -> Void in
+            self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
         }
-        let failureHandler : WliteAuthorizeFailureHandler = { (error) -> Void in
+        
+        let failureHandler : AuthorizeFailureHandler = { (error) -> Void in
             println("authorization failed: \(error)")
             Drop.down("Error: \(error)", state: .Error)
         }
-        
-        Wlite.authorizeWithCallbackURL(callbackURL, successHandler: successHandler, failureHandler: failureHandler);
+
+        App.wlite.authorize(successHandler, failureHandler: failureHandler)
     }
 
 }
