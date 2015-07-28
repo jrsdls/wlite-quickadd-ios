@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let appConfig = AppConfig(clientID: "f3ea79fd629ba3d2e252",
-            clientSecret: "014a02f469a452a8ba3f2d8f0246499a0ac8babe1eb180abfb03516f6512",
-            authCallbackUrl: "https://dl.dropboxusercontent.com/u/33491043/sites/wlite/quickadd/success.html")
+        let appConfig = AppConfig(clientID: "*",
+            clientSecret: "*",
+            authCallbackUrl: "*")
         App.wlite = Wlite(appConfig: appConfig)
         
         window!.tintColor = UIColor.appDarkMainColor()
