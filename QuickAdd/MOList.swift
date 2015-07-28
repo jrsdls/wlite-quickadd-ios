@@ -17,14 +17,6 @@ class MOList: NSManagedObject {
     @NSManaged var listType: String
     @NSManaged var lastUsedDate: NSDate
     
-    convenience init(wlist:List) {
-        self.init()
-        id = Int32(wlist.id)
-        revision = Int32(wlist.revision)
-        title = wlist.title
-        listType = wlist.listType.rawValue
-    }
-    
     var wlist: List {
         get {
             let wlist = List(title: self.title)
@@ -36,6 +28,12 @@ class MOList: NSManagedObject {
                 wlist.listType = .List
             }
             return wlist
+        }
+    }
+    
+    var lastUsedDateSortValue : NSTimeInterval {
+        get {
+            return lastUsedDate.timeIntervalSinceReferenceDate
         }
     }
     
