@@ -116,7 +116,7 @@ class MainVC: UIViewController, UITextFieldDelegate, ListPickerDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let defaultList = self.defaultList {
             let list = List(id: 104379923)
-            let newtask = Task(title: "blah")
+            let newtask = Task(title: textField.text)
             App.wlite.api.task.createTask(newtask, forList: list) { (task, error) -> Void in
                 if let werror = error {
                     println("error: \(werror.type.rawValue) | \(werror.message.rawValue)")
